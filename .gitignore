@@ -63,3 +63,6 @@ Thumbs.db.meta
 
 # VS Code
 *.vscode
+/My project/Library
+/My project/Logs
+/My project/UserSettings
