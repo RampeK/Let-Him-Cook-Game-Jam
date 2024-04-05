@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1107178172274230648}
   - component: {fileID: 144074052072222854}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Kulho Placeholder
+  m_TagString: Bowl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

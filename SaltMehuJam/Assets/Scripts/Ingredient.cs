@@ -1,23 +1,46 @@
+
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour
+public class SelfDestroyOnCollisionWithBowl : MonoBehaviour
 {
-    public int points;
+    public int points = 10; // Määrittele tämä arvo Unity Editorissa
+    public GameObject ingredientPrefab; // Vedä ainesosan prefab tähän Unity Editorissa
+    private Vector3 spawnPosition; // Alkuperäinen spawnin sijainti
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        // Tarkista, onko törmätty objekti kulho
-        if (other.CompareTag("Bowl"))
+        // Tallenna alkuperäinen sijainti spawnPosition-muuttujaan
+        spawnPosition = transform.position;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bowl")
         {
-            // Oletetaan, että lautasella on 'Plate' skripti
-            Plate plate = other.GetComponentInParent<Plate>();
+            Plate plate = collision.gameObject.GetComponent<Plate>() ?? collision.gameObject.GetComponentInParent<Plate>();
             if (plate != null)
             {
                 plate.AddIngredient(points);
-            }
 
-            // Ainesosa katoaa, kun se on lisätty lautaselle
-            Destroy(gameObject);
+                // Tulosta pistemäärä konsoliin ennen objektin tuhoamista
+                Debug.Log($"Ainesosa lisätty. Kokonaispisteet nyt: {plate.GetTotalPoints()}");
+
+                // Luo uusi ainesosa alkuperäiseen sijaintiin
+                GameObject clone = Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
+
+                // Asettaa kaikki MonoBehaviour-skriptit päälle kloonissa
+                foreach (MonoBehaviour script in clone.GetComponents<MonoBehaviour>())
+                {
+                    script.enabled = true;
+                }
+
+                // Tuhotaan tämä objekti
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("Plate-skriptiä ei löydetty 'Bowl'-tagillisesta objektista.");
+            }
         }
     }
 }
