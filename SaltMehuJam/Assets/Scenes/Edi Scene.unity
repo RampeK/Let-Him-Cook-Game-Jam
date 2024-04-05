@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293445b539c78e345b2fe46777bb76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followSpeed: 4
 --- !u!1001 &1562857991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,6 +330,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144074052072222854, guid: ef35b922fe5059c41a7cc39d9f592f48, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 144074052072222854, guid: ef35b922fe5059c41a7cc39d9f592f48, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1107178172274230648, guid: ef35b922fe5059c41a7cc39d9f592f48, type: 3}
       propertyPath: m_Enabled
       value: 0
