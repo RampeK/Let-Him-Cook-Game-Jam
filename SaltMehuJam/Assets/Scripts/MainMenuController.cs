@@ -3,20 +3,33 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject SettingsCanvas;
+    public GameObject MainMenuCanvas;
+    public GameObject CreditsCanvas;
+
     public void PlayButtonClicked()
     {
-        SceneManager.LoadScene("GameScene"); // Load your game scene
+        SceneManager.LoadScene("Main Game Scene"); // Load your game scene
     }
 
     public void SettingsButtonClicked()
     {
-        // Open settings screen or dialog
+        SettingsCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
         Debug.Log("Settings button clicked");
     }
 
     public void CreditsButtonClicked()
     {
-        // Show credits screen or dialog
+        CreditsCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
         Debug.Log("Credits button clicked");
+    }
+
+    public void ReturnButtonClicked()
+    {
+        MainMenuCanvas.SetActive(true);
+        SettingsCanvas.SetActive(false);
+        CreditsCanvas.SetActive(false);
     }
 }

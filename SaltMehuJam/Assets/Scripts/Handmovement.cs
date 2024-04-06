@@ -18,7 +18,7 @@ public class HandMovement : MonoBehaviour
     {
         // Get the mouse position in screen coordinates
         Vector3 mouseScreenPosition = Input.mousePosition;
-        
+
         // Get the distance of the object from the camera
         float distanceToScreen = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 
@@ -26,10 +26,14 @@ public class HandMovement : MonoBehaviour
         mouseScreenPosition.z = distanceToScreen;
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
+        // Lock the z-coordinate
+        mouseWorldPosition.z = transform.position.z; // Locking the z-coordinate of the mouse position
+
         // Calculate the velocity needed to move the Rigidbody towards the target position
-        Vector3 velocity = (mouseWorldPosition - rb.position) * followSpeed;
-        
+        Vector3 targetPosition = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);
+        Vector3 velocity = (targetPosition - rb.position) * followSpeed;
+
         // Apply the calculated velocity to the Rigidbody
-        rb.velocity = new Vector3(velocity.x, velocity.y, rb.velocity.z); // Keeping the Rigidbody's original z velocity
+        rb.velocity = new Vector3(velocity.x, velocity.y, 0f); // Set the z velocity to 0 to lock the z-coordinate
     }
 }
