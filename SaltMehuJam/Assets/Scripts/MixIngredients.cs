@@ -5,6 +5,8 @@ using UnityEngine;
 public class MixIngredients : MonoBehaviour
 {
     public Animator animator;
+    public Animator secondaryAnimator; 
+    public Animator tertiaryAnimator; 
     public Plate plate;
     public GameObject GameOverCanvas;
 
@@ -18,57 +20,57 @@ public class MixIngredients : MonoBehaviour
         if (score <= 50)
         {
             // Score 1 triggers
-            animator.SetTrigger("Räjähdys");
-            animator.SetTrigger("RäjähdysMovement");
-            animator.SetTrigger("Mikro");
+            tertiaryAnimator.SetTrigger("Räjähdys");
+            secondaryAnimator.SetTrigger("RäjähdysMovement");
+            tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
         }
         else if (score <= 99)
         {
             // Score 2 triggers
-            animator.SetTrigger("Valmis");
-            animator.SetTrigger("Huono");
-            animator.SetTrigger("ValmisMovement");
-            animator.SetTrigger("Mikro");
+            secondaryAnimator.SetTrigger("Valmis");
+            secondaryAnimator.SetTrigger("Huono");
+            secondaryAnimator.SetTrigger("ValmisMovement");
+            tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoPudotus");
         }
         else if (score <= 129)
         {
             // Score 3 triggers
-            animator.SetTrigger("Valmis");
-            animator.SetTrigger("Mid");
-            animator.SetTrigger("ValmisMovement");
-            animator.SetTrigger("Mikro");
+            secondaryAnimator.SetTrigger("Valmis");
+            secondaryAnimator.SetTrigger("Mid");
+            secondaryAnimator.SetTrigger("ValmisMovement");
+            tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
         }
         else if (score <= 149)
         {
             // Score 4 triggers
-            animator.SetTrigger("Valmis");
-            animator.SetTrigger("Ookoo");
-            animator.SetTrigger("ValmisMovement");
-            animator.SetTrigger("Mikro");
+            secondaryAnimator.SetTrigger("Valmis");
+            secondaryAnimator.SetTrigger("Ookoo");
+            secondaryAnimator.SetTrigger("ValmisMovement");
+            tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
         }
         else if (score <= 199)
         {
             // Score 5 triggers
-            animator.SetTrigger("Valmis");
-            animator.SetTrigger("Hyvä");
-            animator.SetTrigger("ValmisMovement");
-            animator.SetTrigger("Mikro");
+            secondaryAnimator.SetTrigger("Valmis");
+            secondaryAnimator.SetTrigger("Hyvä");
+            secondaryAnimator.SetTrigger("ValmisMovement");
+            tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoSyönti");
         }
         else
         {
             // Score 6 triggers
-            animator.SetTrigger("Valmis");
-            animator.SetTrigger("Loistava");
-            animator.SetTrigger("ValmisMovement");
-            animator.SetTrigger("LoistavaMovement");
-            animator.SetTrigger("Mikro");
+            secondaryAnimator.SetTrigger("Valmis");
+            secondaryAnimator.SetTrigger("Loistava");
+            secondaryAnimator.SetTrigger("ValmisMovement");
+            secondaryAnimator.SetTrigger("LoistavaMovement");
+            tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoPudotus");
         }
@@ -83,7 +85,7 @@ public class MixIngredients : MonoBehaviour
 
        
         // Voit asettaa tämän arvon sopivaksi animaatioidesi keston mukaan
-        Invoke("ShowGameOverScreen", 5.0f);
+        Invoke("ShowGameOverScreen", 15.0f);
     }
 
     private void ShowGameOverScreen()
