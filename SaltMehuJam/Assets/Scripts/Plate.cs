@@ -23,6 +23,13 @@ public class Plate : MonoBehaviour
 
     public void AddIngredient(string ingredientName)
     {
+        if (items >= 5)
+        {
+            // Jos viisi ainesosaa on jo lisätty, älä tee mitään.
+            Debug.Log("Ei voi lisätä enempää ainesosia, raja saavutettu.");
+            return;
+        }
+
         ingredientsList.Add(ingredientName); // Lisää ainesosa listaan.
         if (ingredientPoints.TryGetValue(ingredientName, out int pointsValue))
         {
@@ -34,6 +41,12 @@ public class Plate : MonoBehaviour
 
     public void CheckCombinations()
     {
+        if (items >= 5)
+        {
+            // Jos viisi ainesosaa on jo lisätty, älä päivitä pisteitä.
+            Debug.Log("Yhdistelmiä ei tarkisteta, koska raja on saavutettu.");
+            return;
+        }
         // Erikoistapaukset ensin
         if (ingredientsList.Contains("Haarukka"))
         {
@@ -47,9 +60,9 @@ public class Plate : MonoBehaviour
         }
 
         // Tarkistetaan "Ananas+Pizza" yhdistelmä ja asetetaan maksimipisteet
-        if (CheckIfCombinationExists(new List<string> { "Ananas", "Pizza" }))
+        if (CheckIfCombinationExists(new List<string> { "Ananas", "Pizza" }) && totalPoints < 60)
         {
-            totalPoints = Mathf.Min(totalPoints, 60); // Maksimipisteet 60, mutta voi laskea
+            totalPoints = 60; // Asetetaan pisteet suoraan 60:een, jos ne ovat alle sen
         }
         else
         {
