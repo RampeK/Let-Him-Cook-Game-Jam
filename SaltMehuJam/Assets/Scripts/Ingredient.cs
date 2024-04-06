@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class SelfDestroyOnCollisionWithBowl : MonoBehaviour
 {
-    public int points = 10; // Määrittele tämä arvo Unity Editorissa
-    public string ingredientName; // Aseta tämä Unity Editorissa kunkin ainesosan prefabille
-    public GameObject ingredientPrefab; // Vedä ainesosan prefab tähän Unity Editorissa
-    private Vector3 spawnPosition; // Alkuperäinen spawnin sijainti
+    public int points = 10; // Mï¿½ï¿½rittele tï¿½mï¿½ arvo Unity Editorissa
+    public string ingredientName; // Aseta tï¿½mï¿½ Unity Editorissa kunkin ainesosan prefabille
+    public GameObject ingredientPrefab; // Vedï¿½ ainesosan prefab tï¿½hï¿½n Unity Editorissa
+    public GameObject CheckGrid;
+    public GameObject CheckBox1;
+    public GameObject CheckBox2;
+    public GameObject CheckBox3;
+    public GameObject CheckBox4;
+    public GameObject Button;
+    private Vector3 spawnPosition; // Alkuperï¿½inen spawnin sijainti
 
     private void Start()
     {
         spawnPosition = transform.position;
-        // Tulosta tämän ainesosan pistearvo konsoliin.
+        // Tulosta tï¿½mï¿½n ainesosan pistearvo konsoliin.
         Debug.Log($"Ainesosan '{ingredientName}' pistearvo on: {points}");
     }
 
@@ -18,26 +24,44 @@ public class SelfDestroyOnCollisionWithBowl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bowl"))
         {
-            // Etsi Plate-komponentti törmänneestä objektista
+            // Etsi Plate-komponentti tï¿½rmï¿½nneestï¿½ objektista
             Plate plate = collision.gameObject.GetComponent<Plate>() ?? collision.gameObject.GetComponentInParent<Plate>();
 
             if (plate != null)
             {
-                // Kutsu Plate-skriptin AddIngredient-metodia ainesosan nimellä
+                // Kutsu Plate-skriptin AddIngredient-metodia ainesosan nimellï¿½
                 plate.AddIngredient(ingredientName);
 
-                // Tulosta pistemäärä konsoliin ennen objektin tuhoamista
-                Debug.Log($"Ainesosa '{ingredientName}' lisätty. Kokonaispisteet nyt: {plate.GetTotalPoints()}");
+                if (plate.GetItems() == 1){
+                    CheckBox1.SetActive(true);
+                } else if (plate.GetItems() == 2){
+                    CheckBox2.SetActive(true);
+                } else if (plate.GetItems() == 3){
+                    CheckBox3.SetActive(true);
+                } else if (plate.GetItems() == 4){
+                    CheckBox4.SetActive(true);
+                } else if (plate.GetItems() == 5){
+                    CheckGrid.SetActive(false);
+                    CheckBox1.SetActive(false);
+                    CheckBox2.SetActive(false);
+                    CheckBox3.SetActive(false);
+                    CheckBox4.SetActive(false);
+                    Button.SetActive(true);
+                }
+                
 
-                // Luo uusi ainesosa alkuperäiseen sijaintiin
+                // Tulosta pistemï¿½ï¿½rï¿½ konsoliin ennen objektin tuhoamista
+                Debug.Log($"Ainesosa '{ingredientName}' lisï¿½tty. Kokonaispisteet nyt: {plate.GetTotalPoints()}");
+
+                // Luo uusi ainesosa alkuperï¿½iseen sijaintiin
                 Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
 
-                // Tuhotaan tämä objekti
+                // Tuhotaan tï¿½mï¿½ objekti
                 Destroy(gameObject);
             }
             else
             {
-                Debug.LogWarning("Bowl-tagillisesta objektista ei löytynyt Plate-skriptiä.");
+                Debug.LogWarning("Bowl-tagillisesta objektista ei lï¿½ytynyt Plate-skriptiï¿½.");
             }
         }
     }
