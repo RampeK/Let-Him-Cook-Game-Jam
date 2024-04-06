@@ -5,6 +5,8 @@ public class HandGrab : MonoBehaviour
     private Rigidbody rb;
     private Collider collidedObject;
     private bool isGrabbing = false;
+    private Vector3 grabOffset;
+    private Vector3 initialVelocity;
 
     void Awake()
     {
@@ -19,22 +21,32 @@ public class HandGrab : MonoBehaviour
             {
                 isGrabbing = true;
                 rb.velocity = Vector3.zero;
+
+                grabOffset = collidedObject.transform.position - transform.position;
+
+                if (collidedObject.GetComponent<Rigidbody>() != null)
+                {
+                    initialVelocity = collidedObject.GetComponent<Rigidbody>().velocity;
+                }
             }
         }
 
         if (Input.GetMouseButton(0) && isGrabbing)
         {
-            Vector3 mouseScreenPosition = Input.mousePosition;
-            float distanceToScreen = Camera.main.WorldToScreenPoint(collidedObject.transform.position).z;
-            mouseScreenPosition.z = distanceToScreen;
-            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-
-            collidedObject.transform.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, collidedObject.transform.position.z);
+            if (collidedObject != null)
+            {
+                collidedObject.transform.position = transform.position + grabOffset;
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             isGrabbing = false;
+
+            if (collidedObject != null && collidedObject.GetComponent<Rigidbody>() != null)
+            {
+                collidedObject.GetComponent<Rigidbody>().velocity = initialVelocity;
+            }
         }
     }
 
