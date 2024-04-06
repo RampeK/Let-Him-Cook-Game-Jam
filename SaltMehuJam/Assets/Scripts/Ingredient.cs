@@ -1,9 +1,9 @@
-
 using UnityEngine;
 
 public class SelfDestroyOnCollisionWithBowl : MonoBehaviour
 {
     public int points = 10; // Määrittele tämä arvo Unity Editorissa
+    public string ingredientName; // Aseta tämä Unity Editorissa kunkin ainesosan prefabille
     public GameObject ingredientPrefab; // Vedä ainesosan prefab tähän Unity Editorissa
     private Vector3 spawnPosition; // Alkuperäinen spawnin sijainti
 
@@ -15,31 +15,28 @@ public class SelfDestroyOnCollisionWithBowl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bowl")
+        if (collision.gameObject.CompareTag("Bowl"))
         {
+            // Etsi Plate-komponentti törmänneestä objektista
             Plate plate = collision.gameObject.GetComponent<Plate>() ?? collision.gameObject.GetComponentInParent<Plate>();
+
             if (plate != null)
             {
-                plate.AddIngredient(points);
+                // Kutsu Plate-skriptin AddIngredient-metodia ainesosan nimellä
+                plate.AddIngredient(ingredientName);
 
                 // Tulosta pistemäärä konsoliin ennen objektin tuhoamista
-                Debug.Log($"Ainesosa lisätty. Kokonaispisteet nyt: {plate.GetTotalPoints()}");
+                Debug.Log($"Ainesosa '{ingredientName}' lisätty. Kokonaispisteet nyt: {plate.GetTotalPoints()}");
 
                 // Luo uusi ainesosa alkuperäiseen sijaintiin
-                GameObject clone = Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
-
-                // Asettaa kaikki MonoBehaviour-skriptit päälle kloonissa
-                foreach (MonoBehaviour script in clone.GetComponents<MonoBehaviour>())
-                {
-                    script.enabled = true;
-                }
+                Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
 
                 // Tuhotaan tämä objekti
                 Destroy(gameObject);
             }
             else
             {
-                Debug.LogWarning("Plate-skriptiä ei löydetty 'Bowl'-tagillisesta objektista.");
+                Debug.LogWarning("Bowl-tagillisesta objektista ei löytynyt Plate-skriptiä.");
             }
         }
     }

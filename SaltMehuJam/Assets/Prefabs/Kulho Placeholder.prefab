@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5271106756336142049}
   - component: {fileID: 1107178172274230648}
   - component: {fileID: 144074052072222854}
+  - component: {fileID: 29807806555671715}
   m_Layer: 0
   m_Name: Kulho Placeholder
   m_TagString: Bowl
@@ -148,3 +149,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &29807806555671715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489879491906835426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff42f327399cbc4ab07c7f996209e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
