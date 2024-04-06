@@ -6,6 +6,7 @@ public class Plate : MonoBehaviour
 {
     private int items = 0;
     private int totalPoints = 0;
+    private bool combinationActivated = false;
     private List<string> ingredientsList = new List<string>();
     private Dictionary<string, int> ingredientPoints = new Dictionary<string, int>
     {
@@ -63,46 +64,41 @@ public class Plate : MonoBehaviour
 
     public void CheckCombinations()
     {
-        if (items >= 5)
+        if (combinationActivated)
         {
-            // Jos viisi ainesosaa on jo lisätty, älä päivitä pisteitä.
-            Debug.Log("Yhdistelmiä ei tarkisteta, koska raja on saavutettu.");
+            // Jos yhdistelmä on jo aktivoitu, älä tarkista uusia yhdistelmiä.
+            Debug.Log("Yhdistelmä on jo aktiivinen, uusia yhdistelmiä ei tarkisteta.");
             return;
         }
-        // Erikoistapaukset ensin
+
+        // Asetetaan erityinen haarukka-logiikka.
         if (ingredientsList.Contains("Haarukka"))
         {
             totalPoints = -10000;
+            combinationActivated = true;
+            Debug.Log("Haarukka löydetty, pistemäärä nollattu.");
             return;
         }
 
+        // Erikoistapaukset ensin
         if (ingredientsList.Count(ingredient => ingredient == "Kivi") >= 4 && ingredientsList.Contains("Vesi"))
         {
-            totalPoints += 130;
+            totalPoints += 130; // Lisää pisteet yhdistelmälle.
+            combinationActivated = true; // Estetään muiden yhdistelmien aktivointi.
+            Debug.Log("Vesi+4xKivi yhdistelmä lisätty, pistemäärä lisätty.");
         }
 
-        // Tarkistetaan "Ananas+Pizza" yhdistelmä ja asetetaan maksimipisteet
-        if (CheckIfCombinationExists(new List<string> { "Ananas", "Pizza" }) && totalPoints < 60)
-        {
-            totalPoints = 60; // Asetetaan pisteet suoraan 60:een, jos ne ovat alle sen
-        }
-        else
-        {
-            // Muita yhdistelmiä ei ole järkevää tarkistaa, jos kiinteät pisteet on jo asetettu
-            if (totalPoints != 60)
-            {
-                CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi" }, 70);
-                CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi", "Ananas", "Viina" }, 200);
-                CheckAndLogCombination(new List<string> { "Rotta", "Piimä" }, 50);
-                CheckAndLogCombination(new List<string> { "Viina", "Pizza" }, 20);
-                CheckAndLogCombination(new List<string> { "Piimä", "Sokeri", "Ananas" }, 30);
-                CheckAndLogCombination(new List<string> { "Rotta", "Kivi" }, -50);
-                CheckAndLogCombination(new List<string> { "Hiiva", "Viina", "Rotta" }, 50);
-                CheckAndLogCombination(new List<string> { "Kivi", "Sokeri" }, 25);
-            }
-        }
+        // Tarkistetaan yhdistelmät ja päivitetään pisteet vain, jos yhdistelmää ei ole vielä aktivoitu.
+        CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi" }, 70);
+        CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi", "Ananas", "Viina" }, 200);
+        CheckAndLogCombination(new List<string> { "Rotta", "Piimä" }, 50);
+        CheckAndLogCombination(new List<string> { "Viina", "Pizza" }, 20);
+        CheckAndLogCombination(new List<string> { "Piimä", "Sokeri", "Ananas" }, 30);
+        CheckAndLogCombination(new List<string> { "Rotta", "Kivi" }, -50);
+        CheckAndLogCombination(new List<string> { "Hiiva", "Viina", "Rotta" }, 50);
+        CheckAndLogCombination(new List<string> { "Kivi", "Sokeri" }, 25);
 
-        Debug.Log($"Väliaikainen pistemäärä: {totalPoints}");
+        Debug.Log($"Lopullinen pistemäärä: {totalPoints}");
     }
 
     private bool CheckIfCombinationExists(List<string> combination)
@@ -112,10 +108,11 @@ public class Plate : MonoBehaviour
 
     private void CheckAndLogCombination(List<string> combination, int points, bool isMaxLimit = false)
     {
-        if (CheckIfCombinationExists(combination))
+        if (!combinationActivated && CheckIfCombinationExists(combination))
         {
             int comboPoints = isMaxLimit ? Mathf.Min(points, totalPoints + points) : points;
             totalPoints += comboPoints;
+            combinationActivated = true; // Estetään muita yhdistelmiä tapahtumasta.
             Debug.Log($"Yhdistelmä: {string.Join("+", combination)} | Pistemäärä: {comboPoints}");
         }
     }
