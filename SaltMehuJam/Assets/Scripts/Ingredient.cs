@@ -9,8 +9,9 @@ public class SelfDestroyOnCollisionWithBowl : MonoBehaviour
 
     private void Start()
     {
-        // Tallenna alkuperäinen sijainti spawnPosition-muuttujaan
         spawnPosition = transform.position;
+        // Tulosta tämän ainesosan pistearvo konsoliin.
+        Debug.Log($"Ainesosan '{ingredientName}' pistearvo on: {points}");
     }
 
     private void OnCollisionEnter(Collision collision)

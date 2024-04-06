@@ -6,7 +6,21 @@ public class Plate : MonoBehaviour
 {
     private int totalPoints = 0;
     private List<string> ingredientsList = new List<string>();
+    private Dictionary<string, int> ingredientPoints = new Dictionary<string, int>()
+{
+    {"Ananas", 2},
+    {"Pizza", 5},
+    {"Piim‰", -5},
+    {"Haarukka", 0},
+    {"Rotta", -5},
+    {"Viina", 10},
+    {"Kivi", -10},
+    {"Hiiva", -5},
+    {"Sokeri", 5},
+    {"Vesi", 0},
+};
 
+    
     // T‰ss‰ metodi ottaa vastaan ainesosan nimen ja lis‰‰ sen listaan.
     public void AddIngredient(string ingredientName)
     {
