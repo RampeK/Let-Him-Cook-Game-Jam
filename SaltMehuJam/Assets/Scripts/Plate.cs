@@ -33,11 +33,33 @@ public class Plate : MonoBehaviour
         ingredientsList.Add(ingredientName); // Lisää ainesosa listaan.
         if (ingredientPoints.TryGetValue(ingredientName, out int pointsValue))
         {
-            totalPoints += pointsValue;
+            // Tarkista, onko jo olemassa olevien pisteiden ja lisättävän ainesosan pisteiden summa yli 60
+            // ja onko "Ananas" ja "Pizza" yhdistelmä jo aktiivinen.
+            if (CheckIfCombinationExists(new List<string> { "Ananas", "Pizza" }))
+            {
+                // Jos yhdistelmä on aktiivinen, salli pisteiden laskea, mutta ei ylittää 60.
+                if (totalPoints + pointsValue > 60)
+                {
+                    // Jos lisäys ylittäisi 60 pistettä, asetetaan pisteet suoraan 60:een.
+                    totalPoints = 60;
+                }
+                else if (pointsValue < 0)
+                {
+                    // Jos lisättävä arvo on negatiivinen, sallitaan pisteiden vähentyminen.
+                    totalPoints += pointsValue;
+                }
+            }
+            else
+            {
+                // Jos "Ananas" ja "Pizza" yhdistelmää ei ole vielä aktivoitu, lisätään pisteet normaalisti.
+                totalPoints += pointsValue;
+            }
+
             items++;
         }
         CheckCombinations(); // Tarkistetaan ja logataan yhdistelmät jokaisen lisätyn ainesosan jälkeen.
     }
+
 
     public void CheckCombinations()
     {
