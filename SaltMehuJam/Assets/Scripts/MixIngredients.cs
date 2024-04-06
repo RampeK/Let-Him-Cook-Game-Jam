@@ -76,16 +76,16 @@ public class MixIngredients : MonoBehaviour
         }
     }
 
-    // Kutsutaan t‰t‰, kun sekoitusnappia painetaan
     public void MixIngredientsButtonClicked()
     {
-        // Haetaan pistem‰‰r‰ Plate-skriptist‰
         int currentScore = plate.GetTotalPoints();
+        Debug.Log("Current Score: " + currentScore); // T‰m‰ tulostaa pistem‰‰r‰n konsoliin.
         UpdateAnimationsBasedOnScore(currentScore);
 
-       
-        // Voit asettaa t‰m‰n arvon sopivaksi animaatioidesi keston mukaan
-        Invoke("ShowGameOverScreen", 15.0f);
+        float delay = (currentScore <= 50) ? 10.0f : 15.0f;
+        Debug.Log("Invoke Delay: " + delay); // T‰m‰ tulostaa viiveen konsoliin.
+
+        Invoke("ShowGameOverScreen", delay);
     }
 
     private void ShowGameOverScreen()
