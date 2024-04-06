@@ -90,7 +90,7 @@ public class Plate : MonoBehaviour
 
         // Tarkistetaan yhdistelmät ja päivitetään pisteet vain, jos yhdistelmää ei ole vielä aktivoitu.
         CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi" }, 70);
-        CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi", "Ananas", "Viina" }, 200);
+        CheckAndLogCombination(new List<string> { "Hiiva", "Piimä", "Vesi", "Ananas", "Viina" }, 200);
         CheckAndLogCombination(new List<string> { "Rotta", "Piimä" }, 50);
         CheckAndLogCombination(new List<string> { "Viina", "Pizza" }, 20);
         CheckAndLogCombination(new List<string> { "Piimä", "Sokeri", "Ananas" }, 30);
