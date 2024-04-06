@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ainesosa_Rotta
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2ed090a0f2d396489ceff4aaaccbeb6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59,6 +63,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2ed090a0f2d396489ceff4aaaccbeb6, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1283904940077041968}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2ed090a0f2d396489ceff4aaaccbeb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1388918550080946184}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2ed090a0f2d396489ceff4aaaccbeb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4191283379369419644}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2ed090a0f2d396489ceff4aaaccbeb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8093370213642290357}
   m_SourcePrefab: {fileID: 100100000, guid: c2ed090a0f2d396489ceff4aaaccbeb6, type: 3}
 --- !u!1 &6086207120505446330 stripped
 GameObject:
@@ -80,3 +93,78 @@ MonoBehaviour:
   points: -5
   ingredientName: Rotta
   ingredientPrefab: {fileID: 6086207120505446330}
+  CheckGrid: {fileID: 0}
+  CheckBox1: {fileID: 0}
+  CheckBox2: {fileID: 0}
+  CheckBox3: {fileID: 0}
+  CheckBox4: {fileID: 0}
+  Button: {fileID: 0}
+--- !u!65 &1388918550080946184
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086207120505446330}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49891892, y: 0.37468228, z: 1.6325502}
+  m_Center: {x: -0.00072075427, y: 0.17193402, z: -0.19494402}
+--- !u!65 &4191283379369419644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086207120505446330}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.77, y: 0.64, z: 1.93}
+  m_Center: {x: -0.00072075427, y: 0.17193402, z: -0.19494402}
+--- !u!54 &8093370213642290357
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086207120505446330}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0

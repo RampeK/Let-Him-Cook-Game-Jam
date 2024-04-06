@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ainesosa_Sokeri
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7facd5f995d090949a093a64f32a3dc4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59,6 +63,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7facd5f995d090949a093a64f32a3dc4, type: 3}
       insertIndex: -1
       addedObject: {fileID: -5812203018952148296}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7facd5f995d090949a093a64f32a3dc4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4692008952089223494}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7facd5f995d090949a093a64f32a3dc4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5502428368257298922}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7facd5f995d090949a093a64f32a3dc4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355010818307611168}
   m_SourcePrefab: {fileID: 100100000, guid: 7facd5f995d090949a093a64f32a3dc4, type: 3}
 --- !u!1 &6954501055240009540 stripped
 GameObject:
@@ -80,3 +93,78 @@ MonoBehaviour:
   points: 5
   ingredientName: Sokeri
   ingredientPrefab: {fileID: 6954501055240009540}
+  CheckGrid: {fileID: 0}
+  CheckBox1: {fileID: 0}
+  CheckBox2: {fileID: 0}
+  CheckBox3: {fileID: 0}
+  CheckBox4: {fileID: 0}
+  Button: {fileID: 0}
+--- !u!54 &4692008952089223494
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954501055240009540}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
+--- !u!65 &5502428368257298922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954501055240009540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5850044, y: 0.5282298, z: 0.5872186}
+  m_Center: {x: -0.010706886, y: 0.2510288, z: -0.012659564}
+--- !u!65 &1355010818307611168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954501055240009540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.87, y: 0.89, z: 0.89}
+  m_Center: {x: -0.010706886, y: 0.2510288, z: -0.012659564}
