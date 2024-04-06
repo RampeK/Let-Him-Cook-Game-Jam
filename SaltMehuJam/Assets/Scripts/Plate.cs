@@ -6,6 +6,7 @@ public class Plate : MonoBehaviour
 {
     private int items = 0;
     private int totalPoints = 0;
+    private bool combinationActivated = false;
     private List<string> ingredientsList = new List<string>();
     private Dictionary<string, int> ingredientPoints = new Dictionary<string, int>
     {
@@ -34,52 +35,53 @@ public class Plate : MonoBehaviour
 
     public void CheckCombinations()
     {
-        int tempTotalPoints = totalPoints; // K�yt� olemassa olevia pisteit� v�liaikaisena pistem��r�n�.
-
-        // Asetetaan erityinen haarukka-logiikka.
+        // Erikoistapaukset ensin
         if (ingredientsList.Contains("Haarukka"))
         {
-            tempTotalPoints = -10000;
-            // Muut yhdistelm�t eiv�t ole merkityksellisi�, jos haarukka on listalla.
+            totalPoints = -10000;
+            return;
         }
-        else
+        else if (ingredientsList.Count(ingredient => ingredient == "Kivi") >= 4 && ingredientsList.Contains("Vesi"))
         {
-            // Erikoistapaus: "Vesi+4x Kivi". Tarkista, ett� listalla on nelj� "Kivi" ainesosaa ja "Vesi".
-            if (ingredientsList.Count(ingredient => ingredient == "Kivi") >= 4 && ingredientsList.Contains("Vesi"))
-            {
-                tempTotalPoints += 130; // Lis�� pisteet yhdistelm�lle.
-            }
-
-            // Tarkistetaan erikoisyhdistelm�t ja lis�t��n pisteet v�liaikaisiin pisteisiin.
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi" }, 70);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Ananas", "Pizza" }, 60, true); // T�m�n yhdistelm�n pisteet ovat maksimissaan 60.
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi", "Ananas", "Viina" }, 200);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Rotta", "Piim�" }, 50);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Viina", "Pizza" }, 20);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Piim�", "Sokeri", "Ananas" }, 30);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Rotta", "Kivi" }, -50);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Hiiva", "Viina", "Rotta" }, 50);
-            tempTotalPoints += CheckAndLogCombination(new List<string> { "Kivi", "Sokeri" }, 25);
+            totalPoints += 130;
         }
 
-        // V�liaikainen pistem��r� p�ivitet��n vain, jos se on suurempi kuin olemassa olevat pisteet.
-        if (tempTotalPoints > totalPoints)
+        // Kiinteät pisteet ananas+pizza yhdistelmälle
+        if (CheckIfCombinationExists(new List<string> { "Ananas", "Pizza" }))
         {
-            totalPoints = tempTotalPoints;
+            totalPoints = 60;
         }
 
-        Debug.Log($"V�liaikainen pistem��r�: {totalPoints}");
+        // Muita yhdistelmiä ei ole järkevää tarkistaa, jos kiinteät pisteet on jo asetettu
+        if (totalPoints != 60)
+        {
+            CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi" }, 70);
+            CheckAndLogCombination(new List<string> { "Hiiva", "Sokeri", "Vesi", "Ananas", "Viina" }, 200);
+            CheckAndLogCombination(new List<string> { "Rotta", "Piimä" }, 50);
+            CheckAndLogCombination(new List<string> { "Viina", "Pizza" }, 20);
+            CheckAndLogCombination(new List<string> { "Piimä", "Sokeri", "Ananas" }, 30);
+            CheckAndLogCombination(new List<string> { "Rotta", "Kivi" }, -50);
+            CheckAndLogCombination(new List<string> { "Hiiva", "Viina", "Rotta" }, 50);
+            CheckAndLogCombination(new List<string> { "Kivi", "Sokeri" }, 25);
+        }
+
+        Debug.Log($"Väliaikainen pistemäärä: {totalPoints}");
     }
 
-    private int CheckAndLogCombination(List<string> combination, int points, bool isMaxLimit = false)
+    private bool CheckIfCombinationExists(List<string> combination)
     {
-        int comboPoints = 0;
-        if (combination.All(ingredient => ingredientsList.Contains(ingredient)))
+        return combination.All(ingredient => ingredientsList.Contains(ingredient));
+    }
+
+    private void CheckAndLogCombination(List<string> combination, int points, bool isMaxLimit = false)
+    {
+        if (!combinationActivated && CheckIfCombinationExists(combination))
         {
-            comboPoints = isMaxLimit ? Mathf.Min(points, totalPoints + points) : points;
-            Debug.Log($"Yhdistelm�: {string.Join("+", combination)} | Pistem��r�: {comboPoints}");
+            int comboPoints = isMaxLimit ? Mathf.Min(points, totalPoints + points) : points;
+            totalPoints += comboPoints;
+            Debug.Log($"Yhdistelmä: {string.Join("+", combination)} | Pistemäärä: {comboPoints}");
+            combinationActivated = true; // Estetään muita yhdistelmiä tapahtumasta.
         }
-        return comboPoints;
     }
 
     public int GetTotalPoints()
