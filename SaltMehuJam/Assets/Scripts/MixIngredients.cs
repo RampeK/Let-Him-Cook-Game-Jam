@@ -24,6 +24,8 @@ public class MixIngredients : MonoBehaviour
             secondaryAnimator.SetTrigger("RäjähdysMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
+
+            Invoke("ShowGameOverScreen", 6.8f);
         }
         else if (score <= 99)
         {
@@ -34,6 +36,8 @@ public class MixIngredients : MonoBehaviour
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoPudotus");
+
+            Invoke("ShowGameOverScreen", 15.0f);
         }
         else if (score <= 129)
         {
@@ -43,6 +47,8 @@ public class MixIngredients : MonoBehaviour
             secondaryAnimator.SetTrigger("ValmisMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
+
+            Invoke("ShowGameOverScreen", 15.0f);
         }
         else if (score <= 149)
         {
@@ -52,6 +58,8 @@ public class MixIngredients : MonoBehaviour
             secondaryAnimator.SetTrigger("ValmisMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
+
+            Invoke("ShowGameOverScreen", 15.0f);
         }
         else if (score <= 199)
         {
@@ -62,6 +70,8 @@ public class MixIngredients : MonoBehaviour
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoSyönti");
+
+            Invoke("ShowGameOverScreen", 20.0f);
         }
         else
         {
@@ -73,6 +83,8 @@ public class MixIngredients : MonoBehaviour
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoPudotus");
+
+            Invoke("ShowGameOverScreen", 21.0f);
         }
     }
 
@@ -85,7 +97,7 @@ public class MixIngredients : MonoBehaviour
 
        
         // Voit asettaa tämän arvon sopivaksi animaatioidesi keston mukaan
-        Invoke("ShowGameOverScreen", 15.0f);
+        
     }
 
     private void ShowGameOverScreen()
