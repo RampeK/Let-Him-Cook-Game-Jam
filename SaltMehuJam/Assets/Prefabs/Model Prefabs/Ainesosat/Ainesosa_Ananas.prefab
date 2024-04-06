@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ainesosa_Ananas
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0fdb7fe94abf63945b3639a6915acaf4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59,6 +63,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fdb7fe94abf63945b3639a6915acaf4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2724766090883922044}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fdb7fe94abf63945b3639a6915acaf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6379465900209099285}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fdb7fe94abf63945b3639a6915acaf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2874385943278371221}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fdb7fe94abf63945b3639a6915acaf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3864333891331418567}
   m_SourcePrefab: {fileID: 100100000, guid: 0fdb7fe94abf63945b3639a6915acaf4, type: 3}
 --- !u!1 &4430092068861514550 stripped
 GameObject:
@@ -80,3 +93,72 @@ MonoBehaviour:
   points: 2
   ingredientName: Ananas
   ingredientPrefab: {fileID: 4430092068861514550}
+--- !u!54 &-6379465900209099285
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430092068861514550}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
+--- !u!65 &-2874385943278371221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430092068861514550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5021088, y: 0.2553388, z: 0.5021088}
+  m_Center: {x: -0.0000003874302, y: 0.12870306, z: 0.000000029802322}
+--- !u!65 &-3864333891331418567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430092068861514550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.62, y: 0.35, z: 0.56}
+  m_Center: {x: -0.0000003874302, y: 0.12870306, z: 0.000000029802322}
