@@ -5,7 +5,7 @@ using UnityEngine;
 public class Plate : MonoBehaviour
 {
     private int items = 0;
-    private int totalPoints = 0;
+    private int totalPoints = 100;
     private bool combinationActivated = false;
     private List<string> ingredientsList = new List<string>();
     private Dictionary<string, int> ingredientPoints = new Dictionary<string, int>
