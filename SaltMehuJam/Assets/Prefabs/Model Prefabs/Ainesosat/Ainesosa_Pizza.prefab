@@ -55,5 +55,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f2abf955b801a924d9eab7fb9f0dc5b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9141983787508877454}
   m_SourcePrefab: {fileID: 100100000, guid: f2abf955b801a924d9eab7fb9f0dc5b1, type: 3}
+--- !u!1 &942429710939648534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2abf955b801a924d9eab7fb9f0dc5b1, type: 3}
+  m_PrefabInstance: {fileID: 132089854473916231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9141983787508877454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942429710939648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4343897cabc41d74e8693307b7c137c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 5
+  ingredientName: Pizza
+  ingredientPrefab: {fileID: 942429710939648534}
