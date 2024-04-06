@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MixIngredients : MonoBehaviour
 {
+    public GameObject GameOverCanvas;
+
     public void MixIngredientsButtonClicked () {
-        
+        GameOverCanvas.SetActive(true);
     }
 }
