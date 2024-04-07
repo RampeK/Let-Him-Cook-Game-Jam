@@ -9,6 +9,7 @@ public class MixIngredients : MonoBehaviour
     public GameObject explosionEffectPrefab;
     public TextMeshProUGUI scoreNumberText;
     public GameObject Music;
+    public GameObject EndMusic;
     public GameObject AnimatorCaveman;
     public GameObject AnimatorMicro;
     public GameObject AnimatorBowl;
@@ -153,6 +154,8 @@ public class MixIngredients : MonoBehaviour
     private void ShowGameOverScreen()
     {
         GameOverCanvas.SetActive(true); // Aktivoidaan GameOverCanvas
+        EndMusic.SetActive(true);
+        
         Debug.Log(scoreNumberText);
         if (scoreNumberText != null)
         {
