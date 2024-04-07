@@ -20,6 +20,7 @@ public class MixIngredients : MonoBehaviour
     public Animator tertiaryAnimator;
     public Plate plate;
     public GameObject GameOverCanvas;
+    public GameObject Button;
 
     public AudioSource src;
     public AudioClip sound1, sound2, sound3, sound4, sound5, sound6;
@@ -131,6 +132,7 @@ public class MixIngredients : MonoBehaviour
 
     public void MixIngredientsButtonClicked()
     {
+        Button.SetActive(false);
         Music.SetActive(false);
         AnimatorBowl.SetActive(true);
         AnimatorCaveman.SetActive(true);

@@ -2983,6 +2983,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2051593104}
     - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
+      propertyPath: Button
+      value: 
+      objectReference: {fileID: 897278717}
+    - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: sound1
       value: 
       objectReference: {fileID: 8300000, guid: 6876c4954a6105345ae43839335ba911, type: 3}
@@ -3046,6 +3050,10 @@ PrefabInstance:
       propertyPath: secondaryAnimator
       value: 
       objectReference: {fileID: 699342724}
+    - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
+      propertyPath: explosionEffectPrefab
+      value: 
+      objectReference: {fileID: 6832528081412534886, guid: 7fdc33911e60cbd46b2f29c28574d820, type: 3}
     - target: {fileID: 3900545986059579838, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: m_Name
       value: MixButton
