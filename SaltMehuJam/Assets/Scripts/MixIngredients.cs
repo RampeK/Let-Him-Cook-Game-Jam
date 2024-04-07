@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MixIngredients : MonoBehaviour
 {
+    public GameObject AnimatorCaveman;
+    public GameObject AnimatorMicro;
+    public GameObject AnimatorBowl;
+    public GameObject PlayerCharacter;
+    public GameObject Microwave;
+    public GameObject Bowl;
     public Animator animator;
     public Animator secondaryAnimator;
     public Animator tertiaryAnimator;
@@ -110,6 +116,12 @@ public class MixIngredients : MonoBehaviour
 
     public void MixIngredientsButtonClicked()
     {
+        AnimatorBowl.SetActive(true);
+        AnimatorCaveman.SetActive(true);
+        AnimatorMicro.SetActive(true);
+        Bowl.SetActive(false);
+        Microwave.SetActive(false);
+        PlayerCharacter.SetActive(false);
         int currentScore = plate.GetTotalPoints();
         Debug.Log("Current Score: " + currentScore); // T�m� tulostaa pistem��r�n konsoliin.
         UpdateAnimationsBasedOnScore(currentScore);
