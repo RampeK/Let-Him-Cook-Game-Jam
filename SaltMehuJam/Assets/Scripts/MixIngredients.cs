@@ -87,7 +87,7 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoSyönti");
 
-            Invoke("ShowGameOverScreen", 20.0f);
+            Invoke("ShowGameOverScreen", 18.0f);
 
             src.clip = sound5;
             src.Play();
