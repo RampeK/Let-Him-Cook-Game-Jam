@@ -1544,6 +1544,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 897278717}
     - target: {fileID: 1932388654837543681, guid: 9381d07d6044b814683fc83d181d08e2, type: 3}
+      propertyPath: points
+      value: -10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932388654837543681, guid: 9381d07d6044b814683fc83d181d08e2, type: 3}
       propertyPath: CheckBox
       value: 
       objectReference: {fileID: 1752711985}
