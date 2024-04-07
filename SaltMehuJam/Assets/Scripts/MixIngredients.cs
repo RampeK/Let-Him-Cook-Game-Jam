@@ -10,20 +10,29 @@ public class MixIngredients : MonoBehaviour
     public Plate plate;
     public GameObject GameOverCanvas;
 
-    // Metodi, joka päivittää animaatiot pistemäärän mukaan
-    public void UpdateAnimationsBasedOnScore(int score)
+    public AudioSource src;
+    public AudioClip sound1, sound2, sound3, sound4, sound5, sound6;
+
+
+        // Metodi, joka pï¿½ivittï¿½ï¿½ animaatiot pistemï¿½ï¿½rï¿½n mukaan
+        public void UpdateAnimationsBasedOnScore(int score)
     {
         // Ensin nollataan kaikki animaatiot
         ResetAllTriggers();
 
-        // Käynnistetään eri animaatiot riippuen pistemäärästä
+        // Kï¿½ynnistetï¿½ï¿½n eri animaatiot riippuen pistemï¿½ï¿½rï¿½stï¿½
         if (score <= 50)
         {
             // Score 1 triggers
-            tertiaryAnimator.SetTrigger("Räjähdys");
-            secondaryAnimator.SetTrigger("RäjähdysMovement");
+            tertiaryAnimator.SetTrigger("Rï¿½jï¿½hdys");
+            secondaryAnimator.SetTrigger("Rï¿½jï¿½hdysMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
+
+            Invoke("ShowGameOverScreen", 6.8f);
+
+            src.clip = sound1;
+            src.Play();
         }
         else if (score <= 99)
         {
@@ -34,6 +43,11 @@ public class MixIngredients : MonoBehaviour
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoPudotus");
+
+            Invoke("ShowGameOverScreen", 15.0f);
+
+            src.clip = sound2;
+            src.Play();
         }
         else if (score <= 129)
         {
@@ -43,6 +57,11 @@ public class MixIngredients : MonoBehaviour
             secondaryAnimator.SetTrigger("ValmisMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
+
+            Invoke("ShowGameOverScreen", 15.0f);
+
+            src.clip = sound3;
+            src.Play();
         }
         else if (score <= 149)
         {
@@ -52,16 +71,26 @@ public class MixIngredients : MonoBehaviour
             secondaryAnimator.SetTrigger("ValmisMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
+
+            Invoke("ShowGameOverScreen", 15.0f);
+
+            src.clip = sound4;
+            src.Play();
         }
         else if (score <= 199)
         {
             // Score 5 triggers
             secondaryAnimator.SetTrigger("Valmis");
-            secondaryAnimator.SetTrigger("Hyvä");
+            secondaryAnimator.SetTrigger("Hyvï¿½");
             secondaryAnimator.SetTrigger("ValmisMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
-            animator.SetTrigger("KulhoSyönti");
+            animator.SetTrigger("KulhoSyï¿½nti");
+
+            Invoke("ShowGameOverScreen", 18.0f);
+
+            src.clip = sound5;
+            src.Play();
         }
         else
         {
@@ -73,19 +102,23 @@ public class MixIngredients : MonoBehaviour
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
             animator.SetTrigger("KulhoPudotus");
+
+            Invoke("ShowGameOverScreen", 21.0f);
+
+            src.clip = sound6;
+            src.Play();
         }
     }
 
     public void MixIngredientsButtonClicked()
     {
         int currentScore = plate.GetTotalPoints();
-        Debug.Log("Current Score: " + currentScore); // Tämä tulostaa pistemäärän konsoliin.
+        Debug.Log("Current Score: " + currentScore); // Tï¿½mï¿½ tulostaa pistemï¿½ï¿½rï¿½n konsoliin.
         UpdateAnimationsBasedOnScore(currentScore);
 
-        float delay = (currentScore <= 50) ? 10.0f : 15.0f;
-        Debug.Log("Invoke Delay: " + delay); // Tämä tulostaa viiveen konsoliin.
-
-        Invoke("ShowGameOverScreen", delay);
+       
+        // Voit asettaa tï¿½mï¿½n arvon sopivaksi animaatioidesi keston mukaan
+        
     }
 
     private void ShowGameOverScreen()
@@ -93,13 +126,13 @@ public class MixIngredients : MonoBehaviour
         GameOverCanvas.SetActive(true);
     }
 
-    // Nollaa kaikki triggerit varmistaaksemme, että animaatiot eivät jää päälle
+    // Nollaa kaikki triggerit varmistaaksemme, ettï¿½ animaatiot eivï¿½t jï¿½ï¿½ pï¿½ï¿½lle
     private void ResetAllTriggers()
     {
         var triggers = new List<string>
         {
-            "Räjähdys", "Valmis", "Huono", "Mid", "Ookoo", "Hyvä", "Loistava",
-            "RäjähdysMovement", "ValmisMovement", "LoistavaMovement", "Mikro"
+            "Rï¿½jï¿½hdys", "Valmis", "Huono", "Mid", "Ookoo", "Hyvï¿½", "Loistava",
+            "Rï¿½jï¿½hdysMovement", "ValmisMovement", "LoistavaMovement", "Mikro"
         };
 
         foreach (var trigger in triggers)
