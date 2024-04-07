@@ -5,8 +5,8 @@ using UnityEngine;
 public class MixIngredients : MonoBehaviour
 {
     public Animator animator;
-    public Animator secondaryAnimator; 
-    public Animator tertiaryAnimator; 
+    public Animator secondaryAnimator;
+    public Animator tertiaryAnimator;
     public Plate plate;
     public GameObject GameOverCanvas;
 
@@ -14,11 +14,9 @@ public class MixIngredients : MonoBehaviour
     public AudioClip sound1, sound2, sound3, sound4, sound5, sound6;
 
 
-        // Metodi, joka p�ivitt�� animaatiot pistem��r�n mukaan
-        public void UpdateAnimationsBasedOnScore(int score)
+    // Metodi, joka p�ivitt�� animaatiot pistem��r�n mukaan
+    public void UpdateAnimationsBasedOnScore(int score)
     {
-        // Ensin nollataan kaikki animaatiot
-        ResetAllTriggers();
 
         // K�ynnistet��n eri animaatiot riippuen pistem��r�st�
         if (score <= 50)
@@ -116,28 +114,15 @@ public class MixIngredients : MonoBehaviour
         Debug.Log("Current Score: " + currentScore); // T�m� tulostaa pistem��r�n konsoliin.
         UpdateAnimationsBasedOnScore(currentScore);
 
-       
+
         // Voit asettaa t�m�n arvon sopivaksi animaatioidesi keston mukaan
-        
+
     }
 
     private void ShowGameOverScreen()
     {
         GameOverCanvas.SetActive(true);
     }
-
-    // Nollaa kaikki triggerit varmistaaksemme, ett� animaatiot eiv�t j�� p��lle
-    private void ResetAllTriggers()
-    {
-        var triggers = new List<string>
-        {
-            "R�j�hdys", "Valmis", "Huono", "Mid", "Ookoo", "Hyv�", "Loistava",
-            "R�j�hdysMovement", "ValmisMovement", "LoistavaMovement", "Mikro"
-        };
-
-        foreach (var trigger in triggers)
-        {
-            animator.ResetTrigger(trigger);
-        }
-    }
 }
+
+    
