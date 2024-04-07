@@ -10,8 +10,12 @@ public class MixIngredients : MonoBehaviour
     public Plate plate;
     public GameObject GameOverCanvas;
 
-    // Metodi, joka p‰ivitt‰‰ animaatiot pistem‰‰r‰n mukaan
-    public void UpdateAnimationsBasedOnScore(int score)
+    public AudioSource src;
+    public AudioClip sound1, sound2, sound3, sound4, sound5, sound6;
+
+
+        // Metodi, joka p‰ivitt‰‰ animaatiot pistem‰‰r‰n mukaan
+        public void UpdateAnimationsBasedOnScore(int score)
     {
         // Ensin nollataan kaikki animaatiot
         ResetAllTriggers();
@@ -26,6 +30,9 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoMikroon");
 
             Invoke("ShowGameOverScreen", 6.8f);
+
+            src.clip = sound1;
+            src.Play();
         }
         else if (score <= 99)
         {
@@ -38,6 +45,9 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoPudotus");
 
             Invoke("ShowGameOverScreen", 15.0f);
+
+            src.clip = sound2;
+            src.Play();
         }
         else if (score <= 129)
         {
@@ -49,6 +59,9 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoMikroon");
 
             Invoke("ShowGameOverScreen", 15.0f);
+
+            src.clip = sound3;
+            src.Play();
         }
         else if (score <= 149)
         {
@@ -60,6 +73,9 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoMikroon");
 
             Invoke("ShowGameOverScreen", 15.0f);
+
+            src.clip = sound4;
+            src.Play();
         }
         else if (score <= 199)
         {
@@ -72,6 +88,9 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoSyˆnti");
 
             Invoke("ShowGameOverScreen", 20.0f);
+
+            src.clip = sound5;
+            src.Play();
         }
         else
         {
@@ -85,6 +104,9 @@ public class MixIngredients : MonoBehaviour
             animator.SetTrigger("KulhoPudotus");
 
             Invoke("ShowGameOverScreen", 21.0f);
+
+            src.clip = sound6;
+            src.Play();
         }
     }
 
