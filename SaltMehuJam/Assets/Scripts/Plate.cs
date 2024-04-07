@@ -13,7 +13,7 @@ public class Plate : MonoBehaviour
         {"Ananas", 2},
         {"Pizza", 5},
         {"Piimä", -5},
-        {"Haarukka", 0},
+        {"Haarukka", -10000},
         {"Rotta", -5},
         {"Viina", 10},
         {"Kivi", -10},
