@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class MixIngredients : MonoBehaviour
 {
+    public TextMeshProUGUI scoreNumberText;
     public GameObject Music;
     public GameObject AnimatorCaveman;
     public GameObject AnimatorMicro;
@@ -135,7 +138,12 @@ public class MixIngredients : MonoBehaviour
 
     private void ShowGameOverScreen()
     {
-        GameOverCanvas.SetActive(true);
+        GameOverCanvas.SetActive(true); // Aktivoidaan GameOverCanvas
+        Debug.Log(scoreNumberText);
+        if (scoreNumberText != null)
+        {
+            scoreNumberText.text = plate.GetTotalPoints().ToString(); // Asetetaan pisteet näkymään
+        }
     }
 }
 
