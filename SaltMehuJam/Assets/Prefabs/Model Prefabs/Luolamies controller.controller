@@ -144,7 +144,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: "R\xE4j\xE4hdys"
+    m_ConditionEvent: Rajahdys
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3772761427451838726}
@@ -291,7 +291,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: "Hyv\xE4"
+    m_ConditionEvent: Hyva
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5892928539383198222}
@@ -341,7 +341,7 @@ AnimatorController:
   m_Name: Luolamies controller
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: "R\xE4j\xE4hdys"
+  - m_Name: Rajahdys
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -371,7 +371,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: "Hyv\xE4"
+  - m_Name: Hyva
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -383,7 +383,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: "R\xE4j\xE4hdysMovement"
+  - m_Name: RajahdysMovement
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -672,7 +672,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: "R\xE4j\xE4hdysMovement"
+    m_ConditionEvent: RajahdysMovement
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3535823862796653623}
