@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MixIngredients : MonoBehaviour
 {
+    public GameObject Music;
     public GameObject AnimatorCaveman;
     public GameObject AnimatorMicro;
     public GameObject AnimatorBowl;
@@ -116,6 +117,7 @@ public class MixIngredients : MonoBehaviour
 
     public void MixIngredientsButtonClicked()
     {
+        Music.SetActive(false);
         AnimatorBowl.SetActive(true);
         AnimatorCaveman.SetActive(true);
         AnimatorMicro.SetActive(true);
