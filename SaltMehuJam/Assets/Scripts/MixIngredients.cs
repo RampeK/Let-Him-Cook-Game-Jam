@@ -123,10 +123,10 @@ public class MixIngredients : MonoBehaviour
 
     private void TriggerExplosionEffect()
     {
-        if (explosionEffectPrefab != null)
+        if (explosionEffectPrefab != null && AnimatorMicro != null)
         {
-            // Luodaan räjähdys efekti pelaajan sijaintiin tai mihin se on tarkoitettu.
-            Instantiate(explosionEffectPrefab, PlayerCharacter.transform.position, Quaternion.identity);
+            // Luodaan räjähdys efekti Micro Animated REAL objektin sijaintiin
+            Instantiate(explosionEffectPrefab, AnimatorMicro.transform.position, Quaternion.identity);
         }
     }
 
