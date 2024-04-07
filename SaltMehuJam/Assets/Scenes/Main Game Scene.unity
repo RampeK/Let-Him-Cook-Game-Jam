@@ -2985,7 +2985,7 @@ PrefabInstance:
     - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: sound1
       value: 
-      objectReference: {fileID: 8300000, guid: 358c0f70b9c1d9744a665cd4133b6bae, type: 3}
+      objectReference: {fileID: 8300000, guid: 6876c4954a6105345ae43839335ba911, type: 3}
     - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: sound2
       value: 
