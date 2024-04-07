@@ -6,6 +6,7 @@ using TMPro;
 
 public class MixIngredients : MonoBehaviour
 {
+    public TextMeshProUGUI gameOverText;
     public GameObject explosionEffectPrefab;
     public TextMeshProUGUI scoreNumberText;
     public GameObject Music;
@@ -150,16 +151,49 @@ public class MixIngredients : MonoBehaviour
 
     }
 
+    private void UpdateGameOverText(int score)
+    {
+        if (gameOverText != null) 
+        {
+            if (score <= 50)
+            {
+                gameOverText.text = "What did you expect would happen?";
+            }
+            else if (score <= 99)
+            {
+                gameOverText.text = "At least you didn't burn everything!";
+            }
+            else if (score <= 129)
+            {
+                gameOverText.text = "You're getting there, chef!";
+            }
+            else if (score <= 149)
+            {
+                gameOverText.text = "So close to a culinary masterpiece!";
+            }
+            else if (score <= 199)
+            {
+                gameOverText.text = "Wow! You're on fire! (Not literally, please)";
+            }
+            else
+            {
+                gameOverText.text = "Gourmet guru! The kitchen is your kingdom!";
+            }
+        }
+    }
+
 
     private void ShowGameOverScreen()
     {
-        GameOverCanvas.SetActive(true); // Aktivoidaan GameOverCanvas
-        EndMusic.SetActive(true);
-        
-        Debug.Log(scoreNumberText);
+        GameOverCanvas.SetActive(true); 
+        EndMusic.SetActive(true); 
+
+        int totalPoints = plate.GetTotalPoints(); 
+        UpdateGameOverText(totalPoints); 
+
         if (scoreNumberText != null)
         {
-            scoreNumberText.text = plate.GetTotalPoints().ToString(); // Asetetaan pisteet näkymään
+            scoreNumberText.text = totalPoints.ToString(); 
         }
     }
 
