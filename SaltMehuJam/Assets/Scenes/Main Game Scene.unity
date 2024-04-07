@@ -2840,7 +2840,7 @@ PrefabInstance:
     - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: src
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1315691246}
     - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: Bowl
       value: 
@@ -2979,14 +2979,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3900545986059579838, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1315691241}
+      addedObject: {fileID: 1315691246}
   m_SourcePrefab: {fileID: 100100000, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
 --- !u!1 &1315691240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3900545986059579838, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
   m_PrefabInstance: {fileID: 1315691239}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1315691241
+--- !u!82 &1315691246
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2998,7 +2998,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
