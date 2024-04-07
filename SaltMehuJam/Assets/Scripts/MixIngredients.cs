@@ -6,6 +6,7 @@ using TMPro;
 
 public class MixIngredients : MonoBehaviour
 {
+    public GameObject explosionEffectPrefab;
     public TextMeshProUGUI scoreNumberText;
     public GameObject Music;
     public GameObject AnimatorCaveman;
@@ -32,11 +33,12 @@ public class MixIngredients : MonoBehaviour
         if (score <= 50)
         {
             // Score 1 triggers
-            tertiaryAnimator.SetTrigger("R�j�hdys");
-            secondaryAnimator.SetTrigger("R�j�hdysMovement");
+            secondaryAnimator.SetTrigger("Rajahdys");
+            secondaryAnimator.SetTrigger("RajahdysMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
 
+            Invoke("TriggerExplosionEffect", 5.8f);
             Invoke("ShowGameOverScreen", 6.8f);
 
             src.clip = sound1;
@@ -89,11 +91,11 @@ public class MixIngredients : MonoBehaviour
         {
             // Score 5 triggers
             secondaryAnimator.SetTrigger("Valmis");
-            secondaryAnimator.SetTrigger("Hyv�");
+            secondaryAnimator.SetTrigger("Hyva");
             secondaryAnimator.SetTrigger("ValmisMovement");
             tertiaryAnimator.SetTrigger("Mikro");
             animator.SetTrigger("KulhoMikroon");
-            animator.SetTrigger("KulhoSy�nti");
+            animator.SetTrigger("KulhoSyonti");
 
             Invoke("ShowGameOverScreen", 18.0f);
 
@@ -118,6 +120,15 @@ public class MixIngredients : MonoBehaviour
         }
     }
 
+    private void TriggerExplosionEffect()
+    {
+        if (explosionEffectPrefab != null)
+        {
+            // Luodaan räjähdys efekti pelaajan sijaintiin tai mihin se on tarkoitettu.
+            Instantiate(explosionEffectPrefab, PlayerCharacter.transform.position, Quaternion.identity);
+        }
+    }
+
     public void MixIngredientsButtonClicked()
     {
         Music.SetActive(false);
@@ -136,6 +147,7 @@ public class MixIngredients : MonoBehaviour
 
     }
 
+
     private void ShowGameOverScreen()
     {
         GameOverCanvas.SetActive(true); // Aktivoidaan GameOverCanvas
@@ -145,6 +157,31 @@ public class MixIngredients : MonoBehaviour
             scoreNumberText.text = plate.GetTotalPoints().ToString(); // Asetetaan pisteet näkymään
         }
     }
+
+    private void ResetAllTriggers()
+    {
+        // Nollaa animatorin triggerit
+        ResetTriggersFor(animator);
+        // Nollaa secondaryAnimatorin triggerit
+        ResetTriggersFor(secondaryAnimator);
+        // Nollaa tertiaryAnimatorin triggerit
+        ResetTriggersFor(tertiaryAnimator);
+    }
+
+    private void ResetTriggersFor(Animator anim)
+    {
+        if (anim == null) return;
+
+        var parameters = anim.parameters;
+        foreach (var param in parameters)
+        {
+            if (param.type == AnimatorControllerParameterType.Trigger)
+            {
+                anim.ResetTrigger(param.name);
+            }
+        }
+    }
 }
+
 
     
