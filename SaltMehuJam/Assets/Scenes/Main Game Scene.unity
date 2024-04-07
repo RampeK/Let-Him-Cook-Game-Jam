@@ -2995,6 +2995,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: c57a6d78349d18e41a97ce37cf9c444b, type: 3}
     - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
+      propertyPath: sound4
+      value: 
+      objectReference: {fileID: 8300000, guid: fdf5ca5e730c17d428ee2542545f8704, type: 3}
+    - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
+      propertyPath: sound5
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fdce641c6a64174baf6ec77c37cabdf, type: 3}
+    - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
+      propertyPath: sound6
+      value: 
+      objectReference: {fileID: 8300000, guid: 35b2f1fa91bf66646a2c420b2c2c2904, type: 3}
+    - target: {fileID: -1866245339095682028, guid: c58955251f987674781e89ddaf05e1a7, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 432014562}
